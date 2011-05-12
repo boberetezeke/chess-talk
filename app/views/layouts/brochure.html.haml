@@ -1,0 +1,44 @@
+!!!5
+%html{:lang => "en"}
+  %head
+    %title Chess-Talk : #{@page_title}
+    %meta{:charset => "utf-8"}/
+    %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
+    %meta{:name => "format-detection", :content => "telephone=no"}
+    = stylesheet_link_tag("reset.css","screen.css", :media => "all")
+    //%link{ :rel => "shortcut icon", :href => "/images/homeicon.png"}/
+    //%link{ :rel => "apple-touch-icon", :href=> "/images/homeicon.png" }
+    = javascript_include_tag("jquery-1.4.4.min","video", "application")
+    = csrf_meta_tag
+    :javascript
+      try{
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      }catch(err){}
+
+      function hideURLbar(){
+        window.scrollTo(0,1);
+      }
+      
+    /[if lt IE 9]
+      %script{:type => "text/javascript", :charset => "utf-8", :src => "#{request.protocol}html5shiv.googlecode.com/svn/trunk/html5.js"}
+    
+  %body{:class => "#{@body_class} #{@product.body_class if @product}"}
+    .container
+      %header
+        .notice= notice
+        .alert= alert
+        .logo= "Chess-Talk"
+        - if current_user
+          .signed_in_as
+            Signed in as 
+            = current_user.email
+          .sign_out= link_to "Sign Out", destroy_user_session_path
+        - else
+          .login= link_to "Sign In", new_user_session_path
+          .sign_up= link_to "Sign Up", new_user_registration_path
+
+      = yield
+    
+      %footer
+        %p="© #{Date.today.year} Chess-Talk"  
+        
