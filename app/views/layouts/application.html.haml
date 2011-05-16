@@ -8,7 +8,7 @@
     = stylesheet_link_tag("reset.css","screen.css", :media => "all")
     //%link{ :rel => "shortcut icon", :href => "/images/homeicon.png"}/
     //%link{ :rel => "apple-touch-icon", :href=> "/images/homeicon.png" }
-    = javascript_include_tag("jquery-1.4.4.min","video", "application")
+    = javascript_include_tag("jquery-1.4.4.min", "application", "jsPgnViewer")
     = csrf_meta_tag
     :javascript
       try{
@@ -22,9 +22,20 @@
     /[if lt IE 9]
       %script{:type => "text/javascript", :charset => "utf-8", :src => "#{request.protocol}html5shiv.googlecode.com/svn/trunk/html5.js"}
     
-  %body{:class => "#{@body_class} #{@product.body_class if @product}"}
+  %body{:class => "#{@body_class}"}
     .container
       %header
+        - if current_user
+          %nav
+            %ul.tabs
+              %li= link_to "Dashboard", dashboard_user_path(current_user)
+              %li= link_to "Schedule", schedule_path(current_user.league.schedules.first)
+              
+            %ul.identity
+              %li= "Hello " + current_user.name
+              %li= link_to "Logout", destroy_user_session_path
+              %li= link_to "Edit Profile", edit_user_path(current_user)
+
         .notice= notice
         .alert= alert
 

@@ -1,0 +1,159 @@
+body
+  line-height: .9
+  +gradient-bg(#40414a, #303037)
+  background: #d95300 url(../images/body-bg.png) repeat-x
+  color: #FFFFFF
+.wrapper
+  //background: url(../images/radial.png) no-repeat 50% 0%, url(../images/bg.png) repeat 0% 0%
+  //background-color: #d95300
+header
+  text-align: center
+  //background-color: rgba(0,0,0,0.25)
+  padding: 0
+  margin: 0
+  height: 55px
+  nav
+    ul.tabs
+      float: left
+      text-align: left
+      li
+        display: inline
+        line-height: 55px
+        a
+          padding: 10px
+          &:link, &:visited
+            color: #fff
+            text-shadow: 0 1px 1px rgba(20, 20, 20, 0.5)
+          &:hover,&.active
+            background-color: #000
+            +border-radius-top(5px)
+    ul.identity
+      float: right
+      text-align: right 
+      li
+        display: inline
+        line-height: 55px
+        a
+          padding: 10px
+          &:link, &:visited
+            color: #fff
+            text-shadow: 0 1px 1px rgba(20, 20, 20, 0.5)
+          &:hover,&.active
+            background-color: #000
+            +border-radius(5px)
+h1.logo
+  text-align: center
+  a
+    background: transparent url("../images/logo.png") no-repeat top left
+    text-indent: -9999em
+    display: block
+    height: 99px
+    width: 233px
+    margin: 0 auto
+    z-index: 10
+h2.tagline
+  background: transparent url("../images/tagline.png") no-repeat top left
+  text-indent: -9999em
+  display: block
+  height: 31px
+  width: 391px
+  margin: 1em 0
+  z-index: 10
+#content
+  width: 100%
+  padding: 5em 0
+  display: block
+  .desc
+    text-align: left
+  h2
+    font-weight: bold
+    color: #fff
+  p
+    color: #fff
+    text-shadow: 0 1px 1px rgba(20, 20, 20, 0.5)
+    font-size: 1.333333333em
+    line-height: 1.925925926em
+    &.platforms
+      text-align: center
+      background-color: #fff
+      color: #444
+      +border-radius(4px)
+      font-family: Georgia, "Times New Roman", serif
+      font-style: italic
+      text-shadow: none
+  .contact-us
+    form p
+      margin-bottom: 1em
+      line-height: 1em
+    input
+      color: #666
+      font-size: 1em
+      font-weight: bold
+      line-height: 1.0
+      padding: 0.3em
+      width: 217px
+      border: 1px solid #ccc
+      font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif
+    textarea
+      color: #666
+      font-size: 1em
+      font-weight: bold
+      line-height: 1.0
+      padding: 0.3em
+      width: 217px
+      border: 1px solid #ccc
+      font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif
+      height: 4em
+      line-height: 1.25
+    input[type=submit]
+      line-height: 30px
+      padding: 8px 16px
+      background: $link_color
+      +border-radius("3px")
+      border: 0
+      font-family: "Trebuchet MS", Arial, sans-serif
+      font-size: 14px
+      font-weight: normal
+      text-transform: uppercase
+      color: #fff
+      text-shadow: 1px 1px 0 rgba(20, 20, 20, 0.5)
+      cursor: pointer
+      margin-right: 10px
+      vertical-align: middle
+      &:hover
+        text-shadow: 1px 1px 0 rgba(20, 20, 20, 0.5)
+        background-color: $link_hover_color
+footer
+  background: transparent url(../images/footer_bg.gif) repeat-x
+  height: 95px
+  text-align: left
+  overflow: hidden
+  p
+    color: #626262
+    text-shadow: 0 1px 1px rgba(20, 20, 20, 0.5)
+    font-weight: bold
+    line-height: 96px
+    a
+      color: #989898
+hr
+  border: 1px solid #fff
+  color: #d1d1d1
+  background-color: #d1d1d1
+  height: 1px
+  display: block
+
+ul,ol
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+tbody tr
+  td
+    border-bottom: 1px solid #dcdfe4
+  &:nth-child(even) td
+    background: #fff
+
+tbody tr:last-child
+  td
+    border-bottom: none
+  

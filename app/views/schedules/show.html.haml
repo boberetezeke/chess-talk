@@ -1,0 +1,17 @@
+%article.schedule
+  %header
+    %h1
+      = @schedule.name
+  %section.standings
+    %h2
+      Standings
+    = render :partial => "schedules/standings", :locals => {:schedule => @schedule}
+
+  %section.rounds
+    %h2
+      Rounds
+    - @rounds.keys.sort.each do |round_number|
+      %h3
+        Round 
+        =round_number
+      = render :partial => "games/table", :locals => {:games => @rounds[round_number], :include_round => false}

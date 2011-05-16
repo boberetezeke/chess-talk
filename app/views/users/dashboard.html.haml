@@ -1,1 +1,77 @@
-Welcome to the dashboard
+%article.dashboard
+  %header
+    %h1
+      Dashboard 
+
+  %section.user
+    %section.user-info
+      %h2
+        Your Status
+      %div
+        .big-title
+          Record
+        .big-value
+          = @user.record
+      %div
+        .med-title
+          Rating
+        .med-value
+          = @user.rating
+
+    %section.user-game-highlight
+      - unless @user.unplayed_games.empty?
+        %h2
+          Unplayed Games
+        %h3
+          Next Opponent
+        - opponent = @user.unplayed_games.first.opponent(@user)
+        .med-title
+          Opponent
+        .med-value
+          = opponent.name
+        .small-title
+          Opponent's Record
+        .small-value
+          = opponent.record
+        .small-title
+          Opponent's Rating
+        .small-value
+          = opponent.rating
+
+      %section.user-games
+        - if @user.unplayed_games.size > 1
+          %h3
+            After That
+          = render :partial => "games/user_table", :locals => {:games => @user.unplayed_games[1..-1]}
+
+    %section.user-games
+      - unless @user.recent_games.empty?
+        %h3
+          Recent Games
+        = render :partial => "games/user_table", :locals => {:games => @user.recent_games}
+      
+  %section.league
+    %section.standings
+      %h2
+        Standings
+      = render :partial => "schedules/standings", :locals => {:schedule => @schedule}
+    %section.recent-games-played
+      %h2
+        Recent League Games
+      = render :partial => "games/table", :locals => {:games => @recent_games_played, :include_round => true}
+    %section.recent-comments
+      %h2
+        Recent League Comments
+      - @recent_comments.each do |comment|
+        .med-title
+          Name
+        .med-value
+          = comment.user.name
+        .small-title
+          Move
+        .small-value
+          = comment.game.move
+        .small-title
+          Comment
+        .small-value
+          = comment.text          

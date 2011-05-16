@@ -2,13 +2,13 @@ ChessTalk::Application.routes.draw do
 
   devise_for :users
   resources :users do
-     member {get :dashboard}
+    member {get :dashboard}
   end
 
-  resources :games
-  resources :schedules
-  resources :tournaments
   resources :leagues
+  resources :schedules
+  resources :games
+  resources :tournaments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

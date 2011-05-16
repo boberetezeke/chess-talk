@@ -1,0 +1,34 @@
+%table.games
+  %thead
+    %tr
+      - if include_round
+        %th
+          Round
+      %th
+        Player
+      %th
+        Color
+      %th
+        Player
+      %th
+        Color
+      %th
+        Result
+  %tbody
+    - games.each do |game|
+      %tr
+        - if include_round
+          %td= game.round
+        - if game.actual_start_datetime
+          %td= link_to game.white_player.name, user_path(game.white_player)
+          %td= "white"
+          %td= link_to game.black_player.name, user_path(game.black_player)
+          %td= "black"
+          %td= link_to game.result, game_path(game)
+        - else
+          %td= link_to game.users.first.name, user_path(game.users.first.name)
+          %td
+          
+          %td= link_to game.users.second.name, user_path(game.users.second.name)
+          %td
+          %td

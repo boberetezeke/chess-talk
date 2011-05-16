@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   before_filter :redirect_home_if_authenticated
   layout "brochure"
 
-
   protected
 
   def redirect_home_if_authenticated

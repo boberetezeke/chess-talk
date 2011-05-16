@@ -1,0 +1,99 @@
+//// Variables
+$base_color: #333 
+$normal_color: #333
+$passive_color: #8a8989
+
+$link_color: #000
+$link_hover_color: #888
+$section_color: #0AE
+
+
+//// Mixins
+
+// Fonts
+=sans
+  font-family: "HelveticaNeue", Helvetica, Arial, Verdana, sans-serif
+  -webkit-text-size-adjust: 100% /* Stops Mobile Safari from auto-adjusting font-sizes */
+
+=serif
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif
+  -webkit-text-size-adjust: 100% /* Stops Mobile Safari from auto-adjusting font-sizes */
+
+=monospace
+  font-family: Monaco, Consolas, "Lucida Console", "Courier New", Courier, monospace
+
+// Gradient Background  
+=gradient-bg($color1, $color2)
+  background-color: $color1
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2})
+  background-image: -moz-linear-gradient(center top, $color1, $color2)
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+
+=gradient-bg-linear($color1, $color2)
+  background-color: $color1
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$color1}, endColorstr=#{$color2})
+  background: -webkit-gradient(linear, left top, right top, from($color1), to($color2))
+  background: -moz-linear-gradient(left, $color1, $color2 )
+
+// Box-Shadow
+=box-shadow($color, $values)
+  -webkit-box-shadow: $values $color
+  -moz-box-shadow: $values $color 
+  box-shadow: $values $color 
+
+// Border-radius
+
+// All corners
+=border-radius($radius)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+// Top Right
+=border-radius-top-right($radius)
+  +border-radius-top-right($radius)
+// Bottom Right
+=border-radius-bottom-right($radius)
+  +border-radius-bottom-right($radius)
+// Bottom Left
+=border-radius-bottom-left($radius)
+  +border-radius-bottom-left($radius)
+// Top Left
+=border-radius-top-left($radius)
+  +border-radius-top-left($radius)
+// Top
+=border-radius-top($radius)
+  +border-radius-top-left($radius)
+  +border-radius-top-right($radius)
+// Right
+=border-radius-right($radius)
+  +border-radius-top-right($radius)
+  +border-radius-bottom-right($radius)
+// Bottom
+=border-radius-bottom($radius)
+  +border-radius-bottom-right($radius)
+  +border-radius-bottom-left($radius)
+// Left
+=border-radius-left($radius)
+  +border-radius-top-left($radius)
+  +border-radius-bottom-left($radius)
+
+// Let's setup the rules so we don't have to repeat ourselves
+// These are mixins for this mixin and are re-used above
+=border-radius-top-right($radius)
+  -moz-border-radius-topright: $radius
+  -webkit-border-top-right-radius: $radius
+  border-top-right-radius: $radius
+
+=border-radius-bottom-right($radius)
+  -moz-border-radius-bottomright: $radius
+  -webkit-border-bottom-right-radius: $radius
+  border-bottom-right-radius: $radius
+=border-radius-bottom-left($radius)
+  -moz-border-radius-bottomleft: $radius
+  -webkit-border-bottom-left-radius: $radius
+  border-bottom-left-radius: $radius
+=border-radius-top-left($radius)
+  -moz-border-radius-topleft: $radius
+  -webkit-border-top-left-radius: $radius
+  border-top-left-radius: $radius

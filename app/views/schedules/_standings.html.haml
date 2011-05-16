@@ -1,0 +1,14 @@
+%table.standings
+  %thead
+    %th
+      Name
+    %th
+      Record
+    %th
+      Rating
+  %tbody
+    - schedule.league.users.each do |user|
+      %tr
+        %td= link_to user.name, user_path(user)
+        %td= user.record
+        %td= user.rating

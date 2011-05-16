@@ -10,18 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110512032615) do
+ActiveRecord::Schema.define(:version => 20110515230319) do
+
+  create_table "comments", :force => true do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.string  "move"
+    t.text    "text"
+  end
+
+  create_table "game_roles", :force => true do |t|
+    t.integer "game_id"
+    t.integer "user_id"
+    t.string  "role"
+  end
 
   create_table "games", :force => true do |t|
-    t.string   "scheduleable_id"
     t.string   "scheduleable_type"
-    t.integer  "white_player"
-    t.integer  "black_player"
     t.string   "result"
-    t.text     "game"
+    t.text     "pgn"
     t.date     "expected_start_date"
     t.datetime "actual_start_datetime"
     t.integer  "round"
+    t.integer  "scheduleable_id"
   end
 
   create_table "leagues", :force => true do |t|
@@ -58,6 +69,10 @@ ActiveRecord::Schema.define(:version => 20110512032615) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "record"
+    t.float    "rating"
+    t.integer  "league_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,40 @@
+%article.game
+  %section.game-details
+    - if @game.actual_start_datetime 
+      .med-title
+        White
+      .med-value
+        = link_to @game.white_player.name, user_path(@game.white_player)
+      .med-title
+        Black
+      .med-value
+        = link_to @game.black_player.name, user_path(@game.black_player)
+      .med-title
+        Result
+      .med-value
+        = @game.result
+      .med-title
+        Date played
+      .med-value
+        = @game.actual_start_datetime
+    - else
+      .med-title
+        Players
+      .med-value
+        = @game.users.map{|x| x.name}.join(" vs ")
+      .med-title
+        Expected start time
+      .med-value
+        = @game.expected_start_date
+  %section.game-board
+    - if @game.actual_start_datetime && !@game.pgn.blank?
+      .pgn{:style => "display:none", :id => "pgn"}
+        = "[White \"#{@game.white_player.name}\"]"
+        = "[Black \"#{@game.black_player.name}\"]"
+        = "[Result \"#{@game.result}\"]"
+        = @game.pgn
+      %div{:id => "pgn_board"}
+%script{:type => "text/javascript"}
+  var brd = new Board('pgn', {'showMovesPane':true, 'movesPaneWidth':'100px'});
+  brd.init();
+  
