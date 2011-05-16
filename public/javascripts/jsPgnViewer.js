@@ -1885,8 +1885,8 @@ function Move(white, black) {
 		this.visuals = {"pgn":{}};
 
 		this.opts = [];
-		this.opts['imagePrefix'] = "img/default/";
-		this.opts['buttonPrefix'] = "img/default/buttons/";
+		this.opts['imagePrefix'] = "/images/default/";
+		this.opts['buttonPrefix'] = "/images/default/buttons/";
 		this.opts['imageSuffix'] = 'gif';
 		this.opts['moveFontSize'] = "8pt";
 		this.opts['moveFontColor'] = "#537c3a";
