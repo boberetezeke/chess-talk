@@ -1,2 +1,2 @@
-class GamesController < ApplicationController
+class GamesController < InheritedResources::Base
 end

@@ -1,2 +1,2 @@
-class LeaguesController < ApplicationController
+class LeaguesController < InheritedResources::Base
 end

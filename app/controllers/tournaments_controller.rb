@@ -1,2 +1,2 @@
-class TournamentsController < ApplicationController
+class TournamentsController < InheritedResources::Base
 end
