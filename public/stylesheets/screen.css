@@ -109,7 +109,7 @@ section.game-board {
   margin: 1.5em 0 1.5em 1.5em; }
 
 a {
-  color: black;
+  color: #333333;
   text-decoration: none; }
   a:hover {
     text-decoration: none; }
@@ -188,9 +188,6 @@ thead th {
 
 th, td, caption {
   padding: 4px 10px 4px 5px; }
-
-tbody tr:nth-child(even) td, tbody tr.even td {
-  background: #666666; }
 
 tfoot {
   font-style: italic; }
@@ -300,6 +297,10 @@ caption {
 .clearfix {
   display: block; }
 
+.winner {
+  font-size: 125%;
+  font-weight: bold; }
+
 body {
   line-height: 0.9;
   background-color: #40414a;
@@ -307,7 +308,7 @@ body {
   background-image: -moz-linear-gradient(center top, #40414a, #303037);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#40414a), to(#303037));
   background: #d95300 url(../images/body-bg.png) repeat-x;
-  color: white; }
+  color: black; }
 
 header {
   text-align: center;
@@ -420,7 +421,7 @@ h2.tagline {
   #content .contact-us input[type=submit] {
     line-height: 30px;
     padding: 8px 16px;
-    background: black;
+    background: #333333;
     -moz-border-radius: "3px";
     -webkit-border-radius: "3px";
     border-radius: "3px";
