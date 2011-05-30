@@ -31,7 +31,7 @@ ChessTalk::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  config.action.mailer.default_url_options = { :host => "www.chess-talk.com" }
+  #config.action.mailer.default_url_options = { :host => "www.chess-talk.com" }
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
