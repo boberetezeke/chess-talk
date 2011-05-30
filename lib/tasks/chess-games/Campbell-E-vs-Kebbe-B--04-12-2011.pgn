@@ -1,0 +1,15 @@
+[Event "2011 Multi-Tech Chess Tournament"]
+[Site "Chess.com"]
+[Date "2011.04.12"]
+[Round "4"]
+[White "Campbell Elder"]
+[Black "Kebbe Boayue"]
+[Result "0-1"]
+[WhiteElo "1250"]
+[BlackElo "1412"]
+[TimeControl "15|0"]
+[Termination "kebbeboayue won by checkmate"]
+
+1.d4 d5 2.e3 Bf5 3.Nc3 e6 4.g4 Bg6 5.f3 Qh4+ 6.Kd2 a6 7.e4 Nc6 8.exd5 exd5 9.Qe2+ Be7 10.Nxd5 O-O-O
+ 11.c4 Bb4+ 12.Nxb4 Nxb4 13.Kc3 Nc2 14.c5 Nxa1 15.Qe5 Nc2 16.c6 Qf6 17.Bc4 Qxe5 18.dxe5 Nd4 19.cxb7+ Kxb7 20.Kb4 Nc2+
+ 21.Ka5 Bd3 22.Bxd3 Rxd3 23.Bf4 Rd5+ 24.Ka4 Ne7 25.Ne2 Nc6 26.b3 Ra5# 0-1

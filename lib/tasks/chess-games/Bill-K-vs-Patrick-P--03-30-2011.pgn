@@ -1,0 +1,17 @@
+[Event "2011 Multi-Tech Chess Tournament"]
+[Site "Chess.com"]
+[Date "2011.03.29"]
+[Round "3"]
+[White "Bill Konkol"]
+[Black "Patrick Petersen"]
+[Result "0-1"]
+[WhiteElo "991"]
+[BlackElo "1233"]
+[TimeControl "30|0"]
+[Termination "Mr_PP won by checkmate"]
+
+1.e4 e5 2.h4 b6 3.h5 Bb7 4.f3 Qg5 5.d3 Qg3+ 6.Ke2 Nc6 7.Kd2 Bb4+ 8.c3 Bc5 9.Qe2 Ba6 10.Kd1 O-O-O
+ 11.h6 gxh6 12.a3 d5 13.exd5 Rxd5 14.Qd2 f5 15.a4 e4 16.f4 Bxd3 17.Ne2 Bxe2+ 18.Bxe2 Rxd2+ 19.Kxd2 Qxg2 20.Re1 Qg3
+ 21.Bh5 Qd3# 0-1
+
+

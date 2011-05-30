@@ -1,0 +1,66 @@
+[Event "2011 Multi-Tech Chess Tournament"]
+[Site "Chess.com"]
+[Date "2011.04.13"]
+[Round "2"]
+[White "Campbell Elder"]
+[Black "Mike Lynch"]
+[Result "0-1"]
+[WhiteElo "1206"]
+[BlackElo "1459"]
+[TimeControl "15|0"]
+[Termination "Mike won by checkmate"]
+
+1.e4 c6
+2.d3 d5
+3.exd5 cxd5
+4.Bf4 e6
+5.Bxb8 Rxb8
+6.Nf3 Nf6
+7.d4 g6
+8.Ne5 Bg7
+9.Nc3 O-O
+10.Qf3 Nd7
+11.h3 Nxe5
+12.dxe5 Bxe5
+13.Nb5 Qa5+
+14.Nc3 d4
+15.O-O-O dxc3
+16.bxc3 Qxa2
+17.Rd3 b6
+18.Qe3 Bg7
+19.f4 Bb7
+20.c4 Rbc8
+21.Ra3 Qxc4
+22.Bxc4 Rxc4
+23.Rxa7 Bxg2
+24.Rd1 Rfc8
+25.Kd2 Rxc2+
+26.Ke1 Bc3+
+27.Rd2 Bxd2+
+28.Qxd2 Rxd2
+29.Kxd2 b5
+30.Ra1 b4
+31.Rb1 Rc4
+32.Ke2 Bd5
+33.Kd3 Rxf4
+34.Ke3 Rh4
+35.Kd2 b3
+36.Kc1 Rxh3
+37.Kb2 Rh2+
+38.Ka3 Ra2+
+39.Kb4 h5
+40.Kc5 h4
+41.Kd6 h3
+42.Rc1 h2
+43.Ke7 h1=Q
+44.Rxh1 Bxh1
+45.Kd6 b2
+46.Ke5 b1=Q
+47.Kf6 Qf1+
+48.Ke7 Kg7
+49.Kd6 Kf6
+50.Kc5 Qd1
+51.Kc4 Rb2
+52.Kc3 Rc2+
+53.Kb4 Qb1+
+54.Ka3 Ra2# 0-1   

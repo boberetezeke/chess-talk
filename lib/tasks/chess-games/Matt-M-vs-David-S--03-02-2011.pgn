@@ -1,0 +1,15 @@
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2011.03.02"]
+[White "smitherino"]
+[Black "mmortenson"]
+[Result "1-0"]
+[WhiteElo "1396"]
+[BlackElo "1128"]
+[TimeControl "15|0"]
+[Termination "smitherino won by checkmate"]
+
+1.e3 e5 2.Bc4 Bc5 3.Qf3 Nf6 4.Nc3 O-O 5.Bd3 Bb4 6.Ne4 b6 7.Nxf6+ Kh8 8.Nxh7 Nc6 9.Qh3 Qh4 10.Qxh4 Bxd2+
+ 11.Bxd2 Nb4 12.Nf6# 1-0
+
+

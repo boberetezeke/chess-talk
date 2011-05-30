@@ -1,0 +1,15 @@
+[Event "2011 Multi-Tech Chess Tournament"]
+[Site "Chess.com"]
+[Date "2011.04.15"]
+[Round "5"]
+[White "Matt Mortenson"]
+[Black "Patrick Petersen"]
+[Result "0-1"]
+[WhiteElo "999"]
+[BlackElo "1391"]
+[TimeControl "30|10"]
+[Termination "Patrick won by checkmate"]
+
+1.d4 e6 2.Nc3 b6 3.e3 Bb7 4.Bd2 a6 5.Nh3 Nh6 6.Bd3 Bxg2 7.Na4 Bxh1 8.e4 Qh4 9.Bg5 Qxh3 10.e5 Ng4
+11.Bf4 Nc6 12.Be2 Nh6 13.Nc3 Be7 14.Ne4 Bxe4 15.Bxh6 gxh6 16.Qd2 Bg5 17.Qd1 Rg8 18.a4 Bh4 19.Ra3 Rg1+ 20.Bf1 Qg2
+21.Ke2 Qxf2# 0-1
