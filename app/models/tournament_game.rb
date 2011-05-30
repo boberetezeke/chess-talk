@@ -1,5 +1,5 @@
 class TournamentGame < ActiveRecord::Base
-  has_one :game, :as => :scheduleable, :dependent => :destroy
-  has_one :predecessor1, :foreign_key => :predecessor1_id, :class => "TournamentGame"
-  has_one :predecessor2, :foreign_key => :predecessor2_id, :class => "TournamentGame"
+  #has_one :game, :as => :scheduleable, :dependent => :destroy
+  #has_one :predecessor1, :foreign_key => :predecessor1_id, :class => "TournamentGame"
+  #has_one :predecessor2, :foreign_key => :predecessor2_id, :class => "TournamentGame"
 end
