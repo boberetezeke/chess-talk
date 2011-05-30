@@ -1,0 +1,15 @@
+%article.edit-user-profile
+  %header
+    %h1 Edit Profile
+  %section.edit-user-form
+    - semantic_form_for @user do |f|
+      - f.inputs do 
+        = f.input :name
+        = f.submit
+    - semantic_form_for @user, :url => registration_path(@user) do |f|
+      - f.inputs do
+        = f.input :email, :as => :email
+        = f.input :current_password, :as => :password
+        = f.input :password, :as => :password, :label => "New Password"
+        = f.input :password_confirmation, :as => :password, :label => "New Password Confirmed"
+        = f.submit
