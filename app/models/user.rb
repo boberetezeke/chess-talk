@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  DEFAULT_START_RATING = 1600.0
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,5 +20,14 @@ class User < ActiveRecord::Base
 
   def recent_games
     []
+  end
+
+  def record
+    "#{wins}-#{losses}-#{ties}"
+  end
+
+  def rating
+    saved_rating = read_attribute(:rating)
+    (saved_rating == 0.0) ? DEFAULT_START_RATING : saved_rating
   end
 end

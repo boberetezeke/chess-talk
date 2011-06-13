@@ -3,6 +3,8 @@ class Game < ActiveRecord::Base
   has_many :game_roles, :dependent => :destroy
   has_many :users, :through => :game_roles
   has_many :comments, :dependent => :destroy
+  
+  #after_save :update_standings
 
   def opponent(user)
     raise "more than two players for this game" unless game_roles.size == 2
@@ -42,5 +44,15 @@ class Game < ActiveRecord::Base
 
   def black_player
     game_roles.select{|gr| gr.role == "black"}.first.user
+  end
+
+  def winner
+    return white_player if white_won
+    return black_player if black_won
+    return nil
+  end
+
+  def update_standings
+    self.scheduleable.update_standings
   end
 end
