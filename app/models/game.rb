@@ -19,11 +19,11 @@ class Game < ActiveRecord::Base
   end
 
   def white_won
-    result == "1-0" || result == "0.5-0.5"
+    result == "1-0"
   end
 
   def black_won
-    result == "0-1" || result == "0.5-0.5"
+    result == "0-1"
   end
 
   def result_for_user(user)

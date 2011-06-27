@@ -8,6 +8,21 @@ class Stats
 	
 	attr_accessor :ar_player, :wins, :losses, :ties, :people_beat, :people_lost_to, :people_tied, :power, :rating, :order
 	attr_accessor :games_played
+
+  def self.calc_rating(rating, other_player_rating, result)
+		if (rating - other_player_rating).abs > 150 then
+			scalar = (other_player_rating - rating) / 1600
+		else
+			scalar = 0
+		end
+		win_expectency = 1.0 / (10.0 ** ((-(other_player_rating - rating).abs / 400.0) + 1)).to_f
+		if rating < other_player_rating || (result == LOSS && rating == other_player_rating) then
+			win_expectency = -win_expectency
+		end
+		
+		rating + (32 * (result + scalar - win_expectency))
+  end
+
 	def initialize(ar_player)
 		@ar_player = ar_player
 		@wins = 0
@@ -60,12 +75,15 @@ class Stats
 		new_rating = calc_rating(other_player, result)
 		other_player_new_rating = other_player.calc_rating(self, OPPOSITE[result])
 		#$TRACE.debug(5, ("result: #{result}, old (%.2f,%.2f), new(%.2f,%.2f)" % [@rating, other_player.rating, new_rating, other_player_new_rating]))
+		#puts ("result: #{result}, (#{self.ar_player.name}, #{other_player.ar_player.name}) old (%.2f,%.2f), new(%.2f,%.2f)" % [@rating, other_player.rating, new_rating, other_player_new_rating])
 
 		self.rating = new_rating
 		other_player.rating = other_player_new_rating
 	end
 
 	def calc_rating(other_player, result)
+    Stats.calc_rating(@rating, other_player.rating, result)
+=begin
 		if (@rating - other_player.rating).abs > 150 then
 			scalar = (other_player.rating - @rating) / 1600		#/
 		else
@@ -81,6 +99,7 @@ class Stats
 		#$TRACE.debug 5, "game adjustment = #{32 * (result + scalar - win_expectency)}"
 		
 		@rating + (32 * (result + scalar - win_expectency))
+=end
 	end
 	
 	def winning_percentage
@@ -96,13 +115,13 @@ class ChessRatingsCalculator
 
   def calculate
     people_stats = {}
-    #@schedule.games.where("result is not null and result <> ''").order(:actual_start_datetime).each do |game|
-    @schedule.games.each do |game|
+    @schedule.games.where("result is not null and result <> ''").order(:actual_start_datetime).each do |game|
       player_1_role = game.game_roles.first
       player_1 = player_1_role.user
       player_2_role = game.game_roles.second
       player_2 = player_2_role.user
 
+      #puts "#{player_1.name} vs #{player_2.name} result = #{game.result}"
       #$TRACE.debug 5, "player_1 = #{player_1}, player 2 = #{player_2}, winner = #{game.winner}"
       people_stats[player_1.id] = Stats.new(player_1) unless people_stats.has_key?(player_1.id)
       people_stats[player_2.id] = Stats.new(player_2) unless people_stats.has_key?(player_2.id)
