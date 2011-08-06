@@ -7,8 +7,9 @@
     %th
       Rating
   %tbody
-    - schedule.league.users.each do |user|
+    - schedule.schedule_results.each do |schedule_result|
       %tr
+        - user = schedule_result.user
         %td= link_to user.name, user_path(user)
         %td= user.record
-        %td= user.rating
+        %td= formatted_rating(user.rating)

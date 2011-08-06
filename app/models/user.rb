@@ -23,7 +23,12 @@ class User < ActiveRecord::Base
   end
 
   def record
-    "#{wins}-#{losses}-#{ties}"
+    schedule_result = self.league.schedules.first.schedule_results.where(:user_id => self).first
+    if (schedule_result)
+      "#{schedule_result.wins}-#{schedule_result.losses}-#{schedule_result.ties}"
+    else
+      "0-0-0"
+    end
   end
 
   def rating

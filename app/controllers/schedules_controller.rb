@@ -1,4 +1,6 @@
 class SchedulesController < InheritedResources::Base
+  helper ApplicationHelper
+
   def show
     show! do
       @rounds = {}

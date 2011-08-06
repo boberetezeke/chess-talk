@@ -28,4 +28,4 @@
         %td= game.actual_start_datetime ? opponent.role : ""
         %td= game.actual_start_datetime ? link_to(game.result_for_user(@user), game_path(game)) : ""
         %td= opponent.record
-        %td= opponent.rating
+        %td= formatted_rating(opponent.rating)

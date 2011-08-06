@@ -2,7 +2,6 @@
   %header
     %h1
       Dashboard 
-
   %section.user
     %section.user-info
       %h2
@@ -16,7 +15,7 @@
         .med-title
           Rating
         .med-value
-          = @user.rating
+          = formatted_rating(@user.rating)
 
     %section.user-game-highlight
       - unless @user.unplayed_games.empty?
@@ -49,6 +48,7 @@
         %h3
           Recent Games
         = render :partial => "games/user_table", :locals => {:games => @user.recent_games}
+    %section{:style => "clear:left;"}
       
   %section.league
     %section.standings
@@ -75,3 +75,5 @@
           Comment
         .small-value
           = comment.text          
+    %section{:style => "clear:left;"}
+  %section{:style => "clear:left;"}

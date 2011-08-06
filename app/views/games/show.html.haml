@@ -1,5 +1,7 @@
 %article.game
   %section.game-details
+    %h2
+      Details
     - if @game.actual_start_datetime 
       .med-title
         White
@@ -26,14 +28,19 @@
         Expected start time
       .med-value
         = @game.expected_start_date
+    .clear
   %section.game-board
     - if @game.actual_start_datetime && !@game.pgn.blank?
+      %h2
+        Game
       .pgn{:style => "display:none", :id => "pgn"}
         = "[White \"#{@game.white_player.name}\"]"
         = "[Black \"#{@game.black_player.name}\"]"
         = "[Result \"#{@game.result}\"]"
         = @game.pgn
       %div{:id => "pgn_board"}
+    .clear
+  .clear
 %script{:type => "text/javascript"}
   var brd = new Board('pgn', {'showMovesPane':true, 'movesPaneWidth':'100px'});
   brd.init();

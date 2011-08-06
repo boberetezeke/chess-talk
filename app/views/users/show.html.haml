@@ -1,17 +1,19 @@
 %article.user
-  %section.details
+  %section.user-details
     %h2
       = @user.name
     .med-title
       Rating
     .med-value
-      = @user.rating
+      = formatted_rating(@user.rating)
     .med-title
       Record
     .med-value
       = @user.record
+    .clear
   %section.user-games
     %h2
       Games
     = render :partial => "games/user_table", :locals => {:games => @user.games.order(:round)}
+  .clear
 

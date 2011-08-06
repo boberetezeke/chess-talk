@@ -1,4 +1,5 @@
 class UsersController < InheritedResources::Base
+  helper ApplicationHelper
   def dashboard
     @user = current_user
     @schedule = @user.league.schedules.first

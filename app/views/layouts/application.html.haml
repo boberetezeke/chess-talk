@@ -24,24 +24,26 @@
     
   %body{:class => "#{@body_class}"}
     .container
-      %header
-        - if current_user
-          %nav
-            %ul.tabs
-              %li= link_to "Dashboard", dashboard_user_path(current_user)
-              %li= link_to "Schedule", schedule_path(current_user.league.schedules.first)
-              
-            %ul.identity
-              %li= "Hello " + current_user.name
-              %li= link_to "Logout", destroy_user_session_path
-              /%li= link_to "Edit Profile", edit_user_registration_path
-              %li= link_to "Edit Profile", edit_user_path(current_user)
+      .inner-container
+        %header
+          - if current_user
+            %nav
+              %ul.tabs
+                %li= tab_link_to "Dashboard", dashboard_user_path(current_user)
+                %li= tab_link_to "Schedule", schedule_path(current_user.league.schedules.first)
+                %li{:style => "display:none;clear:left;"}
+                
+              %ul.profile
+                %li.identity= "Hello " + current_user.name
+                %li= link_to "Logout", destroy_user_session_path
+                /%li= link_to "Edit Profile", edit_user_registration_path
+                %li= link_to "Edit Profile", edit_user_path(current_user)
+                %li{:style => "display:none;clear:right;"}
+              %ul{:style => "display:none;clear:both;"}
+          .notice= notice
+          .alert= alert
 
-        .notice= notice
-        .alert= alert
-
-      = yield
-    
-      %footer
-        %p="© #{Date.today.year} Chess-Talk"  
-        
+        .content= yield
+      
+        %footer
+          %p="© #{Date.today.year} Chess-Talk"  
