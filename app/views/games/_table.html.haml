@@ -22,4 +22,4 @@
         - else
           %td= link_to game.users.first.name, user_path(game.users.first.name)
           %td= link_to game.users.second.name, user_path(game.users.second.name)
-          %td
+          %td= link_to "unplayed", edit_game_path(game)

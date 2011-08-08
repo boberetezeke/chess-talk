@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :users, :through => :game_roles
   has_many :comments, :dependent => :destroy
   
-  #after_save :update_standings
+  after_save :update_standings
 
   def opponent(user)
     raise "more than two players for this game" unless game_roles.size == 2
@@ -39,11 +39,29 @@ class Game < ActiveRecord::Base
   end
 
   def white_player
-    game_roles.select{|gr| gr.role == "white"}.first.user
+    white_players = game_roles.select{|gr| gr.role == "white"}
+    if white_players.empty?
+      nil
+    else
+      white_players.first.user
+    end
+  end
+
+  def white_player=(user)
+    set_role(user, "white")
   end
 
   def black_player
-    game_roles.select{|gr| gr.role == "black"}.first.user
+    black_players = game_roles.select{|gr| gr.role == "black"}
+    if black_players.empty?
+      nil
+    else
+      black_players.first.user
+    end
+  end
+
+  def black_player=(user)
+    set_role(user, "black")
   end
 
   def winner
@@ -54,5 +72,22 @@ class Game < ActiveRecord::Base
 
   def update_standings
     self.scheduleable.update_standings
+  end
+
+  private
+
+  def set_role(user_id, color)
+    if user_id.blank? then
+      game_roles = self.game_roles.select{|gr| gr.role == color}
+      return if game_roles.empty?
+      game_role = game_roles.first
+      game_role.role = ""
+    else
+      game_roles = self.game_roles.select{|gr| gr.user.id == user_id.to_i}
+      return if game_roles.empty?
+      game_role = game_roles.first
+      game_role.role = color
+    end
+    game_role.save
   end
 end

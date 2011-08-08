@@ -1,7 +1,7 @@
 %article.game
   %section.game-details
     %h2
-      Details
+      Details 
     - if @game.actual_start_datetime 
       .med-title
         White
@@ -29,6 +29,7 @@
       .med-value
         = @game.expected_start_date
     .clear
+    = link_to('update game', edit_game_path(@game), :class => "button")
   %section.game-board
     - if @game.actual_start_datetime && !@game.pgn.blank?
       %h2

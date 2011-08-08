@@ -20,6 +20,7 @@ form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-family:inherit; font-size:inherit; font-weight:inherit; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }
 form.formtastic legend { white-space:normal; color:#000; }
+form.formtastic select#game_actual_start_datetime_1i {width: 150px;} /* changed */
 
 
 /* SEMANTIC ERRORS
@@ -58,7 +59,7 @@ form.formtastic fieldset > ol > li > li label input { line-height:100%; vertical
 form.formtastic fieldset > ol > li fieldset { position:relative; }
 form.formtastic fieldset > ol > li fieldset legend { position:absolute; width:95%; padding-top:0.1em; left: 0px; }
 form.formtastic fieldset > ol > li fieldset legend span { position:absolute; }
-form.formtastic fieldset > ol > li fieldset legend.label label { position:absolute; }
+form.formtastic fieldset > ol > li fieldset legend.label label { position:absolute; color: #ffffff;} /* changed */
 form.formtastic fieldset > ol > li fieldset ol { float:left; width:74%; margin:0; padding:0 0 0 25%; }
 form.formtastic fieldset > ol > li fieldset ol li { padding:0; border:0; }
 
@@ -132,9 +133,12 @@ form.formtastic fieldset > ol > li.check_boxes fieldset ol li label input { marg
 
 /* DATE & TIME OVERRIDES
 --------------------------------------------------------------------------------------------------*/
+/*form.formtastic fieldset > ol > li.date fieldset ol li,
+form.formtastic fieldset > ol > li.time fieldset ol li,
+form.formtastic fieldset > ol > li.datetime fieldset ol li { float:left; width:auto; margin:0 .3em 0 0; } */
 form.formtastic fieldset > ol > li.date fieldset ol li,
 form.formtastic fieldset > ol > li.time fieldset ol li,
-form.formtastic fieldset > ol > li.datetime fieldset ol li { float:left; width:auto; margin:0 .3em 0 0; }
+form.formtastic fieldset > ol > li.datetime fieldset ol li { float: left; width: auto; height: 30px; padding-right: 20px; padding-top: 10px; }  /* changed */
 
 form.formtastic fieldset > ol > li.date fieldset ol li label,
 form.formtastic fieldset > ol > li.time fieldset ol li label,

@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size: 3em
-  line-height: 1
+  line-height: 1em
   margin-bottom: 0.5em
 
 h2
@@ -85,6 +85,7 @@ article.game
 // }
 
 section.user
+  margin-top: 10px
   margin-left: 20px
   width: 400px
   @media screen and (max-width: 320px)
@@ -93,6 +94,7 @@ section.user
   float: left
 
 section.league
+  margin-top: 10px
   margin-left: 20px
   margin-right: 20px
   width: 400px
@@ -113,7 +115,12 @@ section.user-game-highlight
 section.user-games
   float: left
 
+section.dashboard-standings
+  float: left
+  width: 100%
+
 section.standings
+  margin-top: 10px
   float: left
   width: 100%
 
@@ -128,6 +135,10 @@ section.recent-comments
 section.game-details
   float: left
   width: 300px
+  margin-bottom: 10px
+
+section.game-details-edit
+  width: 100%
 
 section.game-board
   float: left
@@ -294,6 +305,17 @@ caption
   margin-bottom: 0.5em
   float: left
   width: 40%
+
+.edit-link-span
+  font-size: 0.5em
+
+.button
+  font-size: 1.5em
+  padding: 5px
+  +border-radius(5px)
+  background-color: $tab_background_color
+  &:hover
+    background-color: $tab_hover_background_color
 
 .hide
   display: none

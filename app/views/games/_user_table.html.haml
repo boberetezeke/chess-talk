@@ -26,6 +26,6 @@
         %td= game.actual_start_datetime
         %td= link_to opponent.name, user_path(opponent.user)
         %td= game.actual_start_datetime ? opponent.role : ""
-        %td= game.actual_start_datetime ? link_to(game.result_for_user(@user), game_path(game)) : ""
+        %td= game.actual_start_datetime ? link_to(game.result_for_user(@user), game_path(game)) : link_to("unplayed", edit_game_path(game))
         %td= opponent.record
         %td= formatted_rating(opponent.rating)
