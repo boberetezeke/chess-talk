@@ -3,13 +3,15 @@
     %h1
       Dashboard 
   %section.user
+    %h2
+      = @user.name
     %section.user-info
-      %h2
-        Your Status
+      %h3
+        Current Status
       %div
-        .big-title
+        .med-title
           Record
-        .big-value
+        .med-value
           = @user.record
       %div
         .med-title
@@ -17,37 +19,40 @@
         .med-value
           = formatted_rating(@user.rating)
 
-    %section.user-game-highlight
-      - unless @user.unplayed_games.empty?
+    - unless @user.games.unplayed.empty?
+      %section.user-games
         %h2
           Unplayed Games
-        %h3
-          Next Opponent
-        - opponent = @user.unplayed_games.first.opponent(@user)
-        .med-title
-          Opponent
-        .med-value
-          = opponent.name
-        .small-title
-          Opponent's Record
-        .small-value
-          = opponent.record
-        .small-title
-          Opponent's Rating
-        .small-value
-          = opponent.rating
-
-      %section.user-games
-        - if @user.unplayed_games.size > 1
+        %section.user-game-highlight
+          - next_game = @user.games.unplayed.first
+          - opponent = next_game.opponent(@user)
           %h3
-            After That
-          = render :partial => "games/user_table", :locals => {:games => @user.unplayed_games[1..-1]}
+            = link_to("Next Opponent", game_path(next_game))
+          .med-title
+            Opponent
+          .med-value
+            = link_to(opponent.name, user_path(opponent.user))
+          .medsmall-title
+            Opponent's Record
+          .medsmall-value
+            = opponent.record
+          .medsmall-title
+            Opponent's Rating
+          .medsmall-value
+            = formatted_rating(opponent.rating)
+          .clear
 
-    %section.user-games
-      - unless @user.recent_games.empty?
-        %h3
-          Recent Games
-        = render :partial => "games/user_table", :locals => {:games => @user.recent_games}
+        - if @user.games.unplayed.size > 1
+          %section.user-games
+            %h3
+              After That
+            = render :partial => "games/user_table", :locals => {:games => @user.games.unplayed[1..-1], :unplayed_games => true, :finished_games => false, :verbose => false}
+
+    - unless @user.games.recent.empty?
+      %section.user-games
+        %h2
+          Finished Games
+        = render :partial => "games/user_table", :locals => {:games => @user.games.recent, :unplayed_games => false, :finished_games => true, :verbose => false}
     %section{:style => "clear:left;"}
       
   %section.league

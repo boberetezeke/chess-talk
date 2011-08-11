@@ -14,14 +14,6 @@ class User < ActiveRecord::Base
   has_many :games, :through => :game_roles
   belongs_to :league
 
-  def unplayed_games
-    []
-  end
-
-  def recent_games
-    []
-  end
-
   def record
     schedule_result = self.league.schedules.first.schedule_results.where(:user_id => self).first
     if (schedule_result)

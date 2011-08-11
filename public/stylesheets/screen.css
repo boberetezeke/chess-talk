@@ -82,12 +82,24 @@ section.league {
       margin-right: 5px; } }
 
 section.user-info {
-  width: 180px;
+  width: 360px;
   float: left;
   margin-bottom: 10px; }
+  @media screen and (max-width: 320px) {
+    section.user-info {
+      width: 280px;
+      margin-left: 5px;
+      margin-right: 5px; } }
 
 section.user-game-highlight {
-  float: left; }
+  width: 360px;
+  float: left;
+  margin-bottom: 10px; }
+  @media screen and (max-width: 320px) {
+    section.user-game-highlight {
+      width: 280px;
+      margin-left: 5px;
+      margin-right: 5px; } }
 
 section.user-games {
   float: left; }
@@ -231,31 +243,43 @@ caption {
   float: left;
   width: 25%; }
 
+.medsmall-title {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  float: left;
+  width: 55%; }
+
+.medsmall-value {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  float: left;
+  width: 35%; }
+
 .med-title {
   font-size: 1.5em;
   line-height: 1em;
   float: left;
-  width: 50%; }
+  width: 55%; }
 
 .med-value {
   font-size: 1.3em;
   line-height: 1.5em;
   float: left;
-  width: 40%; }
+  width: 35%; }
 
 .big-title {
   font-size: 1.8em;
   line-height: 2em;
   margin-bottom: 0.5em;
   float: left;
-  width: 50%; }
+  width: 55%; }
 
 .big-value {
   font-size: 1.8em;
   line-height: 2em;
   margin-bottom: 0.5em;
   float: left;
-  width: 40%; }
+  width: 35%; }
 
 .edit-link-span {
   font-size: 0.5em; }
@@ -419,9 +443,9 @@ header {
 .inner-container {
   margin: 10px;
   background-color: #dd0000;
-  -webkit-box-shadow: black 5px 5px 5px;
-  -moz-box-shadow: black 5px 5px 5px;
-  box-shadow: black 5px 5px 5px;
+  -webkit-box-shadow: black 2px 5px 5px;
+  -moz-box-shadow: black 2px 5px 5px;
+  box-shadow: black 2px 5px 5px;
   #border-top: 1px solid #444444;
   #border-left: 1px solid #444444; }
 
@@ -433,6 +457,19 @@ header {
     background-color: #770000; }
     .content article section {
       background-color: #770000; }
+      .content article section.user-info {
+        background-color: #440000;
+        padding: 5px;
+        margin-bottom: 10px; }
+        .content article section.user-info h3 {
+          background-color: #220000; }
+      .content article section.user-game-highlight {
+        padding: 5px;
+        background-color: #440000;
+        margin-bottom: 10px; }
+        .content article section.user-game-highlight h3 {
+          background-color: #220000;
+          padding: 5px; }
 
 footer {
   text-align: left;

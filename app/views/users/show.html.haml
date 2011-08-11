@@ -14,6 +14,6 @@
   %section.user-games
     %h2
       Games
-    = render :partial => "games/user_table", :locals => {:games => @user.games.order(:round)}
+    = render :partial => "games/user_table", :locals => {:games => @user.games.order(:round), :unplayed_games => true, :finished_games => true, :verbose => true}
   .clear
 

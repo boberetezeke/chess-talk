@@ -72,7 +72,7 @@ header
 .inner-container
   margin: 10px
   background-color: $inner_container_background_color
-  +box-shadow(5px 5px 5px, black)
+  +box-shadow(2px 5px 5px, black)
   #border-top: 1px solid #444444
   #border-left: 1px solid #444444
 
@@ -87,6 +87,19 @@ header
     background-color: $article_background_color
     section
       background-color: $section_background_color
+      &.user-info
+        background-color: $highlighted_section_color
+        padding: 5px
+        margin-bottom: 10px
+        h3
+          background-color: $highlighted_section_header_color
+      &.user-game-highlight
+        padding: 5px
+        background-color: $highlighted_section_color
+        margin-bottom: 10px
+        h3
+          background-color: $highlighted_section_header_color
+          padding: 5px
 footer
   //background: transparent url(../images/footer_bg.gif) repeat-x
   //height: 95px

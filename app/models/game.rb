@@ -6,9 +6,20 @@ class Game < ActiveRecord::Base
   
   after_save :update_standings
 
+  class << self
+    def unplayed
+      where("actual_start_datetime is NULL").order("expected_start_date ASC")
+    end
+
+    def recent
+      where("actual_start_datetime is NOT NULL").order("actual_start_datetime DESC").limit(10)
+    end
+  end
+
   def opponent(user)
     raise "more than two players for this game" unless game_roles.size == 2
     opponents = game_roles.inject([]) {|sum,gr| gr.user != user ? (sum + [gr]) : sum }
+
     if opponents.size == 0 then
       raise "user both players in the game"
     elsif opponents.size == 1

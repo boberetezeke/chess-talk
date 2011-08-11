@@ -3,29 +3,37 @@
     %tr
       %th
         Round
-      %th
-        Expected Start Date
-      %th
-        Actual Start Date
+      - if unplayed_games
+        %th
+          Expected Start Date
+      - if finished_games
+        %th
+          Actual Start Date
       %th
         Opponent
-      %th
-        Opponent Color
+      - if verbose
+        %th
+          Opponent Color
       %th
         Result
-      %th
-        Record
-      %th
-        Rating
+      - if verbose
+        %th
+          Record
+        %th
+          Rating
   %tbody  
     - games.each do |game|
       %tr
         - opponent = game.opponent(@user)
         %td= game.round
-        %td= game.expected_start_date
-        %td= game.actual_start_datetime
+        - if unplayed_games
+          %td= game.expected_start_date
+        - if finished_games
+          %td= game.actual_start_datetime
         %td= link_to opponent.name, user_path(opponent.user)
-        %td= game.actual_start_datetime ? opponent.role : ""
+        - if verbose
+          %td= game.actual_start_datetime ? opponent.role : ""
         %td= game.actual_start_datetime ? link_to(game.result_for_user(@user), game_path(game)) : link_to("unplayed", edit_game_path(game))
-        %td= opponent.record
-        %td= formatted_rating(opponent.rating)
+        - if verbose
+          %td= opponent.record
+          %td= formatted_rating(opponent.rating)
