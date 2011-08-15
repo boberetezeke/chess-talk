@@ -35,13 +35,21 @@
                 
               %ul.profile
                 %li.identity= "Hello " + current_user.name
+                - if current_user.admin?
+                  %li= link_to "Admin", admin_path
                 %li= link_to "Logout", destroy_user_session_path
                 /%li= link_to "Edit Profile", edit_user_registration_path
                 %li= link_to "Edit Profile", edit_user_path(current_user)
                 %li{:style => "display:none;clear:right;"}
               %ul{:style => "display:none;clear:both;"}
-          .notice= notice
-          .alert= alert
+
+        - unless notice.blank? && alert.blank?
+          .notices-and-alerts
+            .notices-and-alerts-inner
+              - unless notice.blank?
+                %span.notice= notice
+              - unless alert.blank?
+                %span.alert= alert
 
         .content= yield
       

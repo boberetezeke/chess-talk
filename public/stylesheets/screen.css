@@ -286,6 +286,7 @@ caption {
 
 .button {
   font-size: 1.5em;
+  line-height: 2.5em;
   padding: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -448,6 +449,23 @@ header {
   box-shadow: black 2px 5px 5px;
   #border-top: 1px solid #444444;
   #border-left: 1px solid #444444; }
+
+.notices-and-alerts {
+  background-color: #770000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold; }
+  .notices-and-alerts .notices-and-alerts-inner {
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
+    .notices-and-alerts .notices-and-alerts-inner .notice {
+      color: green; }
+    .notices-and-alerts .notices-and-alerts-inner .alert {
+      color: red; }
 
 .content {
   width: 100%;

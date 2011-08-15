@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531041251) do
+ActiveRecord::Schema.define(:version => 20110813154436) do
 
   create_table "comments", :force => true do |t|
     t.integer "user_id"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110531041251) do
     t.string   "name"
     t.float    "rating"
     t.integer  "league_id"
+    t.string   "roles"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
