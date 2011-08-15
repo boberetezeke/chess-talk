@@ -1,0 +1,47 @@
+!!!5
+%html{:lang => "en"}
+  %head
+    %title Chess-Talk (admin) : #{@page_title}
+    %meta{:charset => "utf-8"}/
+    %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
+    %meta{:name => "format-detection", :content => "telephone=no"}
+    = stylesheet_link_tag("reset.css","screen.css", "formtastic.css", "formtastic_changes.css", :media => "all")
+    //%link{ :rel => "shortcut icon", :href => "/images/homeicon.png"}/
+    //%link{ :rel => "apple-touch-icon", :href=> "/images/homeicon.png" }
+    = javascript_include_tag("jquery-1.4.4.min", "application", "jsPgnViewer")
+    = csrf_meta_tag
+    :javascript
+      try{
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      }catch(err){}
+
+      function hideURLbar(){
+        window.scrollTo(0,1);
+      }
+      
+    /[if lt IE 9]
+      %script{:type => "text/javascript", :charset => "utf-8", :src => "#{request.protocol}html5shiv.googlecode.com/svn/trunk/html5.js"}
+    
+  %body{:class => "#{@body_class}"}
+    .container
+      .inner-container
+        %header
+          - if current_user
+            %nav
+              %ul.tabs
+                %li= tab_link_to "Users", admin_users_path(current_user)
+                %li= tab_link_to "Leagues", admin_leagues_path(current_user)
+                %li{:style => "display:none;clear:left;"}
+                
+              %ul.profile
+                %li.identity= "Hello Admin " + current_user.name
+                %li= link_to "User", root_path
+                %li{:style => "display:none;clear:right;"}
+              %ul{:style => "display:none;clear:both;"}
+          .notice= notice
+          .alert= alert
+
+        .content= yield
+      
+        %footer
+          %p="© #{Date.today.year} Chess-Talk"  

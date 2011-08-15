@@ -1,0 +1,34 @@
+%article.dashboard
+  %header
+    %h1
+      Admin Dashboard 
+  %section.user
+    %h2 Users
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th League
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= link_to(user.name, admin_user_path(user))
+            %td= mail_to(user.email)
+            %td= link_to(user.league.name, admin_league_path(user.league))
+  %section.league
+    %h2 Leagues
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Schedules
+          %th Users
+      %tbody
+        - @leagues.each do |league|
+          %tr
+            %td= league.name
+            %td!= league.schedules.map{|schedule| link_to(schedule.name, schedule_path(schedule))}.join(",")
+            %td!= league.users.map{|user| link_to(user.name, admin_user_path(user))}.join(", ")
+  .clear
+ 

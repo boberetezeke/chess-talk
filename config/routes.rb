@@ -10,6 +10,12 @@ ChessTalk::Application.routes.draw do
   resources :games
   resources :tournaments
 
+  match "admin" => "admin/users#dashboard"
+  namespace :admin do
+    resources :users
+    resources :leagues
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

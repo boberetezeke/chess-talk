@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :game_roles
   has_many :games, :through => :game_roles
   belongs_to :league
+  serialize :roles, Array
 
   def record
     schedule_result = self.league.schedules.first.schedule_results.where(:user_id => self).first
@@ -26,5 +27,9 @@ class User < ActiveRecord::Base
   def rating
     saved_rating = read_attribute(:rating)
     (saved_rating == 0.0) ? DEFAULT_START_RATING : saved_rating
+  end
+
+  def admin?
+    roles && roles.include?("admin")
   end
 end
