@@ -5,6 +5,9 @@ class HomeController < ApplicationController
 
   protected
 
+  def index
+  end
+
   def redirect_home_if_authenticated
     if current_user then
       redirect_to dashboard_user_path(current_user)
