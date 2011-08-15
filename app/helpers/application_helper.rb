@@ -22,4 +22,25 @@ logger.debug "controller, action = #{controller},#{action} -- #{params[:controll
     logger.debug "header_link_to: a=#{a.inspect}, b=#{b.inspect} a==b=#{(a==b).inspect}"
     return a
   end
+
+  def game_text(game, prefix)
+    prefix + (game.pgn.blank? ? "" : " (PGN)")
+  end
+
+  def date_only_datetime_text(datetime)
+    if datetime
+      datetime.localtime.strftime("%m/%d/%Y")
+    else
+      ""
+    end
+  end
+
+  def full_datetime_text(datetime)
+    if datetime
+      datetime.localtime.strftime("%m/%d/%Y %I:%M%p")
+    else
+      ""
+    end
+  end
 end
+

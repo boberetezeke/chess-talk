@@ -18,7 +18,7 @@
       .med-title
         Date played
       .med-value
-        = @game.actual_start_datetime
+        = full_datetime_text(@game.actual_start_datetime)
     - else
       .med-title
         Players
@@ -27,9 +27,10 @@
       .med-title
         Expected start time
       .med-value
-        = @game.expected_start_date
+        = date_only_datetime_text(@game.expected_start_date)
     .clear
-    = link_to('update game', edit_game_path(@game), :class => "button")
+    - if @game.editable_by_user(current_user)
+      = link_to('update game', edit_game_path(@game), :class => "button")
   %section.game-board
     - if @game.actual_start_datetime && !@game.pgn.blank?
       %h2

@@ -27,13 +27,13 @@
         - opponent = game.opponent(@user)
         %td= game.round
         - if unplayed_games
-          %td= game.expected_start_date
+          %td= date_only_datetime_text(game.expected_start_date)
         - if finished_games
-          %td= game.actual_start_datetime
+          %td= full_datetime_text(game.actual_start_datetime)
         %td= link_to opponent.name, user_path(opponent.user)
         - if verbose
           %td= game.actual_start_datetime ? opponent.role : ""
-        %td= game.actual_start_datetime ? link_to(game.result_for_user(@user), game_path(game)) : link_to("unplayed", edit_game_path(game))
+        %td= game.actual_start_datetime ? link_to(game_text(game, game.result_for_user(@user)), game_path(game)) : link_to("unplayed", edit_game_path(game))
         - if verbose
           %td= opponent.record
           %td= formatted_rating(opponent.rating)
