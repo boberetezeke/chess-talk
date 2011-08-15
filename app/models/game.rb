@@ -16,6 +16,15 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def description
+    if white_player && black_player then
+      "#{white_player.name} vs. #{black_player.name}"
+    else
+      players = game_roles.map{|gr| gr.user}
+      "#{players.first.name} vs. #{players.second.name}"
+    end
+  end
+
   def opponent(user)
     raise "more than two players for this game" unless game_roles.size == 2
     opponents = game_roles.inject([]) {|sum,gr| gr.user != user ? (sum + [gr]) : sum }
@@ -83,6 +92,10 @@ class Game < ActiveRecord::Base
 
   def update_standings
     self.scheduleable.update_standings
+  end
+
+  def editable_by_user(user)
+    self.game_roles.map{|gr| gr.user}.include?(user) || user.admin?
   end
 
   private
