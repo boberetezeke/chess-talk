@@ -36,7 +36,7 @@
           %td Bye
         - if verbose
           %td= game.actual_start_datetime ? opponent.role : ""
-        %td= game.actual_start_datetime ? link_to(game_text(game, game.result_for_user(@user)), game_path(game)) : link_to("unplayed", edit_game_path(game))
+        %td= game.actual_start_datetime ? link_to(game_text(game, game.result_for_user(@user)), game_path(game)) : (game.bye? ? "" : link_to("unplayed", edit_game_path(game)))
         - if verbose
           %td= opponent ? opponent.record : ""
           %td= opponent ? formatted_rating(opponent.rating) : ""

@@ -25,4 +25,4 @@
             %td Bye
           - else
             %td= link_to player_name(game.users.second), user_path(game.users.second)
-          %td= link_to "unplayed", edit_game_path(game)
+          %td= game.bye? ? "" : link_to("unplayed", edit_game_path(game))
