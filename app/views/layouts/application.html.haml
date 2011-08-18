@@ -38,7 +38,7 @@
                 
               %ul.profile
                 %li.identity= "Hello " + current_user.name
-                - if current_user.admin?
+                - if current_user && current_user.admin?
                   %span.extra-header-buttons
                     %li= link_to "Admin", admin_path
                 %li= link_to "Logout", destroy_user_session_path
@@ -59,7 +59,7 @@
         .content= yield
       
         %footer
-          - if current_user.admin?
+          - if current_user && current_user.admin?
             .footer-buttons
               %span.button= link_to "Admin", admin_path
           %p="© #{Date.today.year} Chess-Talk"  
