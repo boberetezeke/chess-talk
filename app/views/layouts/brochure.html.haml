@@ -24,21 +24,25 @@
     
   %body{:class => "#{@body_class} #{@product.body_class if @product}"}
     .container
-      %header
+      .inner-container
+        %header
+          %h2{"text-align" => "center"} Chess Talk
         .notice= notice
         .alert= alert
-        .logo= "Chess-Talk"
+        .content
+          .main-page-content
+        /= yield
         - if current_user
           .signed_in_as
             Signed in as 
             = current_user.email
           .sign_out= link_to "Sign Out", destroy_user_session_path
         - else
-          .login= link_to "Sign In", new_user_session_path
+          .main-page-actions
+            %span.button= link_to "Sign In", new_user_session_path
           /.sign_up= link_to "Sign Up", new_user_registration_path
 
-      = yield
-    
-      %footer
-        %p="© #{Date.today.year} Chess-Talk"  
+      
+        /%footer
+        /%p="© #{Date.today.year} Chess-Talk"  
         

@@ -15,7 +15,10 @@
           %tr
             %td= link_to(user.name, admin_user_path(user))
             %td= mail_to(user.email)
-            %td= link_to(user.league.name, admin_league_path(user.league))
+            - if user.league
+              %td= link_to(user.league.name, admin_league_path(user.league))
+            - else
+              %td
   %section.league
     %h2 Leagues
     %table

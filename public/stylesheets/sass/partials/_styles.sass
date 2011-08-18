@@ -67,6 +67,9 @@ article.user
 article.game
   margin: 10px
 
+article.login
+  padding: 10px
+
 // Smartphones (portrait and landscape) ----------- 
 //@media only screen
 //	and (min-device-width : 320px)
@@ -174,6 +177,32 @@ section.edit-user-form
 .right
   float: right
   margin: 1.5em 0 1.5em 1.5em
+
+.main-page-content
+  padding: 10px
+  margin-left: auto
+  margin-right: auto
+  width: 392px
+  height: 86px
+  background-image: url("/images/logo.png")
+  @media screen and (max-width: 320px)
+    width: 280px
+    height: 61px
+    background-image: url("/images/logo-iphone.png")
+  background-repeat: no-repeat
+
+
+.main-page-actions
+  text-align: center
+
+.extra-header-buttons
+  @media screen and (max-width: 320px)
+    display: none
+
+.footer-buttons
+  display: none
+  @media screen and (max-width: 320px)
+    display: block
 
 a
   color: $link_color
