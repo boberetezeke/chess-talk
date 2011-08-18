@@ -34,11 +34,10 @@ class Game < ActiveRecord::Base
   end
 
   def opponent(user)
-    return nil if self.bye?
     opponents = game_roles.inject([]) {|sum,gr| gr.user != user ? (sum + [gr]) : sum }
 
     if opponents.size == 0 then
-      raise "user both players in the game"
+        return nil
     elsif opponents.size == 1
         return opponents.first
     else

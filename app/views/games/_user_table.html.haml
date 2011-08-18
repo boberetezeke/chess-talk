@@ -31,7 +31,7 @@
         - if finished_games
           %td= full_datetime_text(game.actual_start_datetime)
         - if opponent
-          %td= link_to opponent.name, user_path(opponent.user)
+          %td= link_to player_name(opponent.user), user_path(opponent.user)
         - else
           %td Bye
         - if verbose

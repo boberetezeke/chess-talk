@@ -12,11 +12,15 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :game_roles
   has_many :games, :through => :game_roles
+  has_many :schedule_results
   belongs_to :league
   serialize :roles, Array
 
   def record
-    schedule_result = self.league.schedules.first.schedule_results.where(:user_id => self).first
+    if self.league then
+      schedule_result = self.league.schedules.first.schedule_results.where(:user_id => self).first
+    end
+
     if (schedule_result)
       "#{schedule_result.wins}-#{schedule_result.losses}-#{schedule_result.ties}"
     else

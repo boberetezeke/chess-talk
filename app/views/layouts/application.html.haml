@@ -30,7 +30,10 @@
             %nav
               %ul.tabs
                 %li= tab_link_to "Dashboard", dashboard_user_path(current_user)
-                %li= tab_link_to "Schedule", schedule_path(current_user.league.schedules.first)
+                - if current_user.league
+                  %li= tab_link_to "Schedule", schedule_path(current_user.league.schedules.first)
+                - else
+                  %li= tab_link_to "Schedule", schedule_path(League.first.schedules.first)
                 %li{:style => "display:none;clear:left;"}
                 
               %ul.profile

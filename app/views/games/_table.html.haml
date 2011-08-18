@@ -16,13 +16,13 @@
         - if include_round
           %td= game.round
         - if game.actual_start_datetime
-          %td= link_to game.white_player.name, user_path(game.white_player), :class => (game.white_won ? "winner" : "")
-          %td= link_to game.black_player.name, user_path(game.black_player), :class => (game.black_won ? "winner" : "")
+          %td= link_to player_name(game.white_player), user_path(game.white_player), :class => (game.white_won ? "winner" : "")
+          %td= link_to player_name(game.black_player), user_path(game.black_player), :class => (game.black_won ? "winner" : "")
           %td= link_to game_text(game, date_only_datetime_text(game.actual_start_datetime)), game_path(game)
         - else
-          %td= link_to game.users.first.name, user_path(game.users.first.name)
-          - if game.bye?
+          %td= link_to player_name(game.users.first), user_path(game.users.first)
+          - if game.bye? && !game.users.second
             %td Bye
           - else
-            %td= link_to game.users.second.name, user_path(game.users.second.name)
+            %td= link_to player_name(game.users.second), user_path(game.users.second)
           %td= link_to "unplayed", edit_game_path(game)

@@ -42,5 +42,13 @@ logger.debug "controller, action = #{controller},#{action} -- #{params[:controll
       ""
     end
   end
+
+  def player_name(player)
+    if player.league
+      player.name
+    else
+      "#{player.name} (OUT)"
+    end
+  end
 end
 

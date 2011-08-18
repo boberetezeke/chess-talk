@@ -115,7 +115,7 @@ class ChessRatingsCalculator
 
   def calculate
     people_stats = {}
-    @schedule.games.where("result is not null and result <> ''").order(:actual_start_datetime).each do |game|
+    @schedule.games.where("result is not null and result <> '' and (bye is null or bye = false)").order(:actual_start_datetime).each do |game|
       player_1_role = game.game_roles.first
       player_1 = player_1_role.user
       player_2_role = game.game_roles.second

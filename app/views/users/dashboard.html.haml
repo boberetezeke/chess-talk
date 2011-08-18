@@ -73,8 +73,8 @@
         Recent League Games
       = render :partial => "games/table", :locals => {:games => @recent_games_played, :include_round => true}
     %section.recent-comments
-      %h2
-        Recent League Comments
+      /%h2
+      /  /Recent League Comments
       - @recent_comments.each do |comment|
         .med-title
           Name
