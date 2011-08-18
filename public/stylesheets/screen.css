@@ -136,6 +136,12 @@ section.game-board {
 section.user-details {
   margin-bottom: 20px; }
 
+section.edit-user-form form {
+  margin-bottom: 20px; }
+
+section.edit-user-form {
+  padding-bottom: 10px; }
+
 .left {
   float: left;
   margin: 1.5em 1.5em 1.5em 0;

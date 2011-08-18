@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
   class << self
     def unplayed
-      where("actual_start_datetime is NULL").order("expected_start_date ASC")
+      where("actual_start_datetime is NULL and (bye = false or bye is null)").order("expected_start_date ASC").select {|game| game.game_roles.size == 2}
     end
 
     def recent
@@ -21,12 +21,20 @@ class Game < ActiveRecord::Base
       "#{white_player.name} vs. #{black_player.name}"
     else
       players = game_roles.map{|gr| gr.user}
-      "#{players.first.name} vs. #{players.second.name}"
+      if (players.size == 1)
+        "#{players.first.name} (Bye)"
+      else
+        "#{players.first.name} vs. #{players.second.name}"
+      end
     end
   end
 
+  def bye?
+    self.bye
+  end
+
   def opponent(user)
-    raise "more than two players for this game" unless game_roles.size == 2
+    return nil if self.bye?
     opponents = game_roles.inject([]) {|sum,gr| gr.user != user ? (sum + [gr]) : sum }
 
     if opponents.size == 0 then

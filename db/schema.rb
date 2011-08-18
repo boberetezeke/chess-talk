@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813154436) do
+ActiveRecord::Schema.define(:version => 20110816222556) do
 
   create_table "comments", :force => true do |t|
     t.integer "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110813154436) do
     t.datetime "actual_start_datetime"
     t.integer  "round"
     t.integer  "scheduleable_id"
+    t.boolean  "bye",                   :default => false
   end
 
   create_table "leagues", :force => true do |t|

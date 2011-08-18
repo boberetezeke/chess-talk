@@ -5,6 +5,7 @@ gem 'pg'
 
 gem 'validate_email'
 gem 'devise', '1.3.1'
+gem 'cancan'
 gem 'jquery-rails', '~> 0.2.6'
 gem 'haml-rails'
 gem 'sass'

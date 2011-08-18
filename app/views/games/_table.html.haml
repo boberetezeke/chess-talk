@@ -21,5 +21,8 @@
           %td= link_to game_text(game, date_only_datetime_text(game.actual_start_datetime)), game_path(game)
         - else
           %td= link_to game.users.first.name, user_path(game.users.first.name)
-          %td= link_to game.users.second.name, user_path(game.users.second.name)
+          - if game.bye?
+            %td Bye
+          - else
+            %td= link_to game.users.second.name, user_path(game.users.second.name)
           %td= link_to "unplayed", edit_game_path(game)

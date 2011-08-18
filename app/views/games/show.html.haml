@@ -23,13 +23,16 @@
       .med-title
         Players
       .med-value
-        = @game.users.map{|x| x.name}.join(" vs ")
+        - if @game.users.size == 1 then
+          = @game.users.map{|x| x.name}.first + " (Bye)"
+        - else
+          = @game.users.map{|x| x.name}.join(" vs ")
       .med-title
         Expected start time
       .med-value
         = date_only_datetime_text(@game.expected_start_date)
     .clear
-    - if @game.editable_by_user(current_user)
+    - if @game.editable_by_user(current_user) && !@game.bye?
       = link_to('update game', edit_game_path(@game), :class => "button")
   %section.game-board
     - if @game.actual_start_datetime && !@game.pgn.blank?

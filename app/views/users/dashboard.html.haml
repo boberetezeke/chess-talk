@@ -40,6 +40,14 @@
             Opponent's Rating
           .medsmall-value
             = formatted_rating(opponent.rating)
+          .medsmall-title
+            Round
+          .medsmall-value
+            = next_game.round
+          .medsmall-title
+            Expected Start Date
+          .medsmall-value
+            = date_only_datetime_text(next_game.expected_start_date)
           .clear
 
         - if @user.games.unplayed.size > 1
