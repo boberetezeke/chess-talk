@@ -1,6 +1,6 @@
 namespace :league do
-  desc "remove a player"
-  task :remove_player => :environment do 
+  desc "remove Multi-Tech 2011 players"
+  task :remove_mt_2011_players => :environment do 
     remove_player("Greg Thatcher")
     remove_player("Daryl Dehmer")
     remove_player("Bill Konkol")
