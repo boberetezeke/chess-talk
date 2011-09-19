@@ -105,6 +105,14 @@ class Game < ActiveRecord::Base
     self.game_roles.map{|gr| gr.user}.include?(user) || user.admin?
   end
 
+  def players_and_commenters
+    (self.players + self.comments(:include => :user).map{|c| c.user}).uniq
+  end
+
+  def players
+    self.users
+  end
+
   private
 
   def set_role(user_id, color)

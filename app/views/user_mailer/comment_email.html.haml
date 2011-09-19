@@ -1,0 +1,11 @@
+%div{:style => "background-color: #FF0000; color: white;padding:20px;"}
+  %div{:style => "background-color: #DD0000;"}
+    %h1 
+      %img{:src =>  image_url("logo-small.png", @request)}
+      Chess-Talk Comment
+  %div{:style => "background-color: #770000; padding:5px; border-radius:3px;"}
+    %p
+      = link_to @comment.user.name, user_url(@comment.user), :style => "color: white; link-decoration: none; font-weight: bold;"
+      has commented on the game 
+      = link_to @comment.game.description, game_url(@comment.game), :style => "color: white; link-decoration: none; font-weight: bold;"
+    %p= @comment.text

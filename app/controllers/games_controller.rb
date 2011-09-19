@@ -2,6 +2,8 @@ class GamesController < ApplicationController
   def show
     show! do
       @page_title = @game.description
+      @new_comment = Comment.new(:game => @game, :user => current_user)
+      @comments = @game.comments
     end
   end
     

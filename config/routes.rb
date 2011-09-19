@@ -1,13 +1,15 @@
 ChessTalk::Application.routes.draw do
-
   devise_for :users #, :controllers => {:sessions => "users/sessions"}
-  resources :users do
+  resources :users, :shallow => true do |user|
     member {get :dashboard}
   end
 
   resources :leagues
   resources :schedules
-  resources :games
+  resources :comments
+  resources :games do
+    resources :comments, :shallow => true
+  end
   resources :tournaments
 
   match "admin" => "admin/users#dashboard"

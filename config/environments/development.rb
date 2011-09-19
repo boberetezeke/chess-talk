@@ -20,7 +20,7 @@ ChessTalk::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => "coderow.com",
+    :domain => "chess-talk.com",
     :authentication => :plain,
     :user_name => "stevetuckner@gmail.com",
     :password => "greplock",

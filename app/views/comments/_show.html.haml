@@ -1,0 +1,12 @@
+.comment
+  .medsmall-title  Name
+  .medsmall-value= comment.user.name
+  /.medsmall-title When
+  /.medsmall-value= comment.datetime
+  - if comment.move
+    .medsmall-title Move
+    .medsmall-value= comment.move
+  .medsmall-title Comment
+  .medsmall-value= comment.text
+  .clear
+
