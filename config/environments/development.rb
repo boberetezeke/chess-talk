@@ -23,7 +23,7 @@ ChessTalk::Application.configure do
     :domain => "chess-talk.com",
     :authentication => :plain,
     :user_name => "stevetuckner@gmail.com",
-    :password => "greplock",
+    :password => ENV["EMAIL_PASSWORD"]
     :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
