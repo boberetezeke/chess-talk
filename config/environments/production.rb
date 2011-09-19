@@ -31,6 +31,20 @@ ChessTalk::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "chess-talk.com",
+    :authentication => :plain,
+    :user_name => "stevetuckner@gmail.com",
+    :password => "greplock",
+    :enable_starttls_auto => true
+  }
+  config.action_mailer.default_url_options = { :host => 'chess-talk.com' }
+
   #config.action.mailer.default_url_options = { :host => "www.chess-talk.com" }
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
