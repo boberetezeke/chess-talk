@@ -44,9 +44,37 @@
         = "[Result \"#{@game.result}\"]"
         = @game.pgn
       %div{:id => "pgn_board"}
+    %section.comments
+      %h3
+        Comments for
+        %span#current-move all moves
+      .comment-links
+        %span#show-comment-form= link_to("New Comment", "#", :class => "button")
+        %span#hide-comment-form= link_to("Hide Comment", "#", :class => "button")
+      = render :partial => "comments/new", :locals => {:comment => @new_comment, :user => current_user, :game => @game}
+      - @comments.each do |comment|
+        = render :partial => "comments/show", :locals => {:comment => comment}
     .clear
   .clear
-%script{:type => "text/javascript"}
+:javascript
   var brd = new Board('pgn', {'showMovesPane':true, 'movesPaneWidth':'100px'});
   brd.init();
+
+  $(function() {
+    $("#new_comment").hide();
+    $("#hide-comment-form").hide();
+
+    $("#show-comment-form").click(function() {
+      $("#new_comment").show();
+      $("#hide-comment-form").show();
+      $(this).hide();
+      return false;
+    });
+    $("#hide-comment-form").click(function() {
+      $("#new_comment").hide();
+      $("#show-comment-form").show();
+      $(this).hide();
+      return false;
+    });
+  });
   

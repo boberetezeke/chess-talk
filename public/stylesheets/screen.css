@@ -145,6 +145,24 @@ section.edit-user-form form {
 section.edit-user-form {
   padding-bottom: 10px; }
 
+section.comments {
+  margin-top: 10px; }
+  section.comments a#show-comment-form {
+    font-size: 10pt; }
+  section.comments a#hide-comment-form {
+    font-size: 10pt; }
+  section.comments form textarea {
+    height: 40px; }
+
+.comment {
+  background-color: #660000;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
 .left {
   float: left;
   margin: 1.5em 1.5em 1.5em 0;
@@ -182,7 +200,7 @@ section.edit-user-form {
       display: block; } }
 
 a {
-  color: white;
+  color: #eeeeee;
   text-decoration: none; }
   a:hover {
     text-decoration: none; }

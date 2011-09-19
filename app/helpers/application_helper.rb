@@ -50,5 +50,12 @@ logger.debug "controller, action = #{controller},#{action} -- #{params[:controll
       "#{player.name} (OUT)"
     end
   end
+
+  def image_url(source, request)
+    rel_path = image_path(source)
+    abs_prefix = "#{request.protocol}#{request.host}"
+    abs_prefix << ":#{request.port}" if request.port != 80
+    "#{abs_prefix}/#{rel_path}"
+  end 
 end
 
