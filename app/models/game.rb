@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :users, :through => :game_roles
   has_many :comments, :dependent => :destroy
   
-  after_save :update_standings
+  #after_save :update_standings
 
   class << self
     def unplayed
